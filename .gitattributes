@@ -1,0 +1,6 @@
+* text=auto
+*.py linguist-language=Python
+*.ipynb linguist-language=Jupyter Notebook
+*.csv text eol=lf
+*.ags text eol=lf
+*.md text eol=lf
