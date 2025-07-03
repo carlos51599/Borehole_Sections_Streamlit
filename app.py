@@ -8,8 +8,22 @@ from map_utils import filter_selection_by_shape
 from borehole_selection import render_checkbox_grid
 from section_logic import generate_section_plot
 from map_render import render_map
+from borehole_log import render_borehole_log
+
 
 st.set_page_config(layout="wide")
+
+# --- Show reload prompt on first app open ---
+if "reloaded_once" not in st.session_state:
+    st.markdown(
+        """
+        <div style="background-color:#fff0f0;padding:10px 16px;border-radius:6px;border:1px solid #ffcccc;margin-bottom:12px;">
+            <span style="color:#b00020;font-weight:bold;">Please reload the page (Ctrl+R or F5) to ensure the app works correctly on first load.</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.session_state["reloaded_once"] = True
 
 if "ags_files" not in st.session_state:
     uploaded_files = st.file_uploader(
@@ -48,11 +62,100 @@ if "last_shape_hash" not in st.session_state:
 if "selected_boreholes" not in st.session_state:
     st.session_state["selected_boreholes"] = pd.DataFrame()
 
+
 st.subheader("Select Boreholes on Map")
+
+# --- Custom JS event handler for log link ---
+st.markdown(
+    """
+    <script>
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'show_log') {
+            window.parent.postMessage(event.data, '*');
+            window.dispatchEvent(new CustomEvent('streamlit_bh_log', {detail: event.data.loca_id}));
+        }
+    });
+    </script>
+    """,
+    unsafe_allow_html=True,
+)
+
 m = render_map(loca_df, transformer, st.session_state["selected_boreholes"])
 map_data = st_folium(
     m, height=600, width=None, key=st.session_state.get("last_shape_hash")
 )
+
+# --- Listen for log event and update session state ---
+log_placeholder = st.empty()
+if "show_log_loca_id" not in st.session_state:
+    st.session_state["show_log_loca_id"] = None
+
+log_js = """
+<script>
+window.addEventListener('streamlit_bh_log', function(e) {
+    const loca_id = e.detail;
+    if (window.parent) {
+        const streamlitDoc = window.parent.document;
+        const input = streamlitDoc.querySelector('input[data-testid="stTextInput"]');
+        if (input) { input.value = loca_id; }
+    }
+    window.parent.postMessage({type: 'streamlit_set_log', loca_id: loca_id}, '*');
+    window.location.hash = '#show_log_' + loca_id;
+    window.dispatchEvent(new CustomEvent('streamlit_set_log', {detail: loca_id}));
+});
+</script>
+"""
+st.markdown(log_js, unsafe_allow_html=True)
+
+import streamlit.components.v1 as components
+
+components.html(
+    """<script>
+window.addEventListener('streamlit_set_log', function(e) {
+    const loca_id = e.detail;
+    window.parent.postMessage({type: 'set_log', loca_id: loca_id}, '*');
+});
+</script>""",
+    height=0,
+)
+
+if map_data and map_data.get("last_object_clicked_tooltip"):
+    # This is a fallback for folium click events
+    clicked = map_data["last_object_clicked_tooltip"]
+    if clicked and isinstance(clicked, str) and "|" in clicked:
+        bh_id = clicked.split("|")[0].strip()
+        st.session_state["show_log_loca_id"] = bh_id
+
+if st.session_state["show_log_loca_id"]:
+    # Try to auto-scroll to the log plot using JS (works in some browsers/Streamlit versions)
+    st.markdown(
+        """
+        <script>
+        setTimeout(function() {
+            var el = window.parent.document.querySelector('section.main');
+            if (el) { el.scrollTo({top: el.scrollHeight, behavior: 'smooth'}); }
+        }, 300);
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+    # Show Labels checkbox just above the log plot (only one global checkbox)
+    if "show_labels" not in st.session_state:
+        st.session_state["show_labels"] = True
+    st.session_state["show_labels"] = st.checkbox(
+        "Labels",
+        value=st.session_state["show_labels"],
+        help="Show/hide GEOL_LEG labels on plots.",
+        key="labels_checkbox",
+    )
+    render_borehole_log(
+        st.session_state["show_log_loca_id"],
+        filename_map,
+        st.session_state["ags_files"],
+        show_labels=st.session_state["show_labels"],
+        fig_height=12,
+    )
+    st.stop()
 
 if map_data and map_data.get("last_active_drawing"):
     geom = map_data["last_active_drawing"]["geometry"]
@@ -74,15 +177,53 @@ if map_data and map_data.get("last_active_drawing"):
 else:
     pass
 
+
 selected = st.session_state["selected_boreholes"]
 if selected is not None and not selected.empty:
     st.markdown("**Selected Boreholes:**")
     filtered_ids = render_checkbox_grid(selected)
 
+    # Divider below checkboxes
+    st.markdown(
+        '<hr style="margin: 0.5em 0 1em 0; border: none; border-top: 1px solid #bbb;">',
+        unsafe_allow_html=True,
+    )
+
     if not filtered_ids:
         st.warning("No boreholes selected. Please check at least one borehole.")
+    elif len(filtered_ids) == 1:
+        # If only one borehole is selected, show the log plot instead of the section plot
+        if "show_labels" not in st.session_state:
+            st.session_state["show_labels"] = True
+        st.session_state["show_labels"] = st.checkbox(
+            "Labels",
+            value=st.session_state["show_labels"],
+            help="Show/hide GEOL_LEG labels on plots.",
+            key="labels_checkbox",
+        )
+        render_borehole_log(
+            filtered_ids[0],
+            filename_map,
+            st.session_state["ags_files"],
+            show_labels=st.session_state["show_labels"],
+            fig_height=12,
+        )
     else:
-        section_fig = generate_section_plot(filtered_ids, selected, filename_map)
+        # Show section plot for multiple boreholes
+        if "show_labels" not in st.session_state:
+            st.session_state["show_labels"] = True
+        st.session_state["show_labels"] = st.checkbox(
+            "Labels",
+            value=st.session_state["show_labels"],
+            help="Show/hide GEOL_LEG labels on plots.",
+            key="labels_checkbox",
+        )
+        section_fig = generate_section_plot(
+            filtered_ids,
+            selected,
+            filename_map,
+            show_labels=st.session_state["show_labels"],
+        )
         if section_fig:
             buffer = BytesIO()
             section_fig.savefig(buffer, format="png", bbox_inches="tight")

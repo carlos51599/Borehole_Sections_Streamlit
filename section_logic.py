@@ -2,9 +2,11 @@ import streamlit as st
 from section_plot import plot_section_from_ags
 from sklearn.decomposition import PCA
 import pyproj
+import os
+import tempfile
 
 
-def generate_section_plot(filtered_ids, selected, filename_map):
+def generate_section_plot(filtered_ids, selected, filename_map, show_labels=True):
     section_fig = None
     id_to_file = selected.set_index("LOCA_ID")["ags_file"].to_dict()
     section_line = None
@@ -43,13 +45,14 @@ def generate_section_plot(filtered_ids, selected, filename_map):
         ids_for_file = [bh for bh in filtered_ids if id_to_file.get(bh) == fname]
         if not ids_for_file:
             continue
-        ags_temp_path = f"/tmp/{fname}"
+        ags_temp_path = os.path.join(tempfile.gettempdir(), fname)
         with open(ags_temp_path, "w", encoding="utf-8") as f:
             f.write(content)
         section_fig = plot_section_from_ags(
             ags_file=ags_temp_path,
             filter_loca_ids=ids_for_file,
             section_line=section_line,
+            show_labels=show_labels,
         )
         if section_fig:
             st.pyplot(section_fig)

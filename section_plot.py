@@ -97,7 +97,7 @@ def parse_ags_geol_section(filepath):
 
 
 def plot_borehole_sections(
-    geol_df, loca_df, abbr_df=None, ags_title=None, section_line=None
+    geol_df, loca_df, abbr_df=None, ags_title=None, section_line=None, show_labels=True
 ):
     """Plot a section for each borehole using real X coordinates from LOCA_NATE (Easting) in LOCA group.
     The bottom axis is distance in meters (relative to the first borehole), and the same GEOL_LEG code
@@ -246,16 +246,17 @@ def plot_borehole_sections(
                         group_top = group_rows.iloc[0]["ELEV_TOP"]
                         group_base = group_rows.iloc[-1]["ELEV_BASE"]
                         label_elev = (group_top + group_base) / 2
-                        ax.text(
-                            bh_x,
-                            label_elev,
-                            str(prev_leg),  # Only show the code
-                            ha="center",
-                            va="center",
-                            fontsize=8,
-                            color="k",
-                            rotation=90,
-                        )
+                        if show_labels:
+                            ax.text(
+                                bh_x,
+                                label_elev,
+                                str(prev_leg),  # Only show the code
+                                ha="center",
+                                va="center",
+                                fontsize=8,
+                                color="k",
+                                rotation=90,
+                            )
                         intervals_labelled += 1
                         labelled_groups.append(
                             (
@@ -280,16 +281,17 @@ def plot_borehole_sections(
                 group_top = group_rows.iloc[0]["ELEV_TOP"]
                 group_base = group_rows.iloc[-1]["ELEV_BASE"]
                 label_elev = (group_top + group_base) / 2
-                ax.text(
-                    bh_x,
-                    label_elev,
-                    str(prev_leg),  # Only show the code
-                    ha="center",
-                    va="center",
-                    fontsize=8,
-                    color="k",
-                    rotation=90,
-                )
+                if show_labels:
+                    ax.text(
+                        bh_x,
+                        label_elev,
+                        str(prev_leg),  # Only show the code
+                        ha="center",
+                        va="center",
+                        fontsize=8,
+                        color="k",
+                        rotation=90,
+                    )
                 intervals_labelled += 1
                 labelled_groups.append(
                     (
@@ -417,7 +419,9 @@ def plot_borehole_sections(
     return fig
 
 
-def plot_section_from_ags(ags_file, filter_loca_ids=None, section_line=None):
+def plot_section_from_ags(
+    ags_file, filter_loca_ids=None, section_line=None, show_labels=True
+):
     """Parse AGS file and plot section for optionally filtered LOCA_IDs. Returns the matplotlib figure."""
     geol_df, loca_df, abbr_df = parse_ags_geol_section(ags_file)
     if filter_loca_ids is not None:
@@ -433,7 +437,12 @@ def plot_section_from_ags(ags_file, filter_loca_ids=None, section_line=None):
     else:
         ags_title = ags_filename
     return plot_borehole_sections(
-        geol_df, loca_df, abbr_df, ags_title=ags_title, section_line=section_line
+        geol_df,
+        loca_df,
+        abbr_df,
+        ags_title=ags_title,
+        section_line=section_line,
+        show_labels=show_labels,
     )
 
 

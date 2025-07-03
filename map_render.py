@@ -16,9 +16,17 @@ def render_map(loca_df, transformer, selected_boreholes):
 
     for _, row in loca_df.iterrows():
         text = f"{row['LOCA_ID']} | GL: {row.get('LOCA_GL', '?')} | Depth: {row.get('LOCA_FDEP', '?')}"
+        # Add a clickable link to show log in the popup
+        html = f"""
+        <b>{row['LOCA_ID']}</b><br>
+        GL: {row.get('LOCA_GL', '?')}<br>
+        Depth: {row.get('LOCA_FDEP', '?')}<br>
+        <a href='#' onclick=\"window.parent.postMessage({{type: 'show_log', loca_id: '{row['LOCA_ID']}' }}, '*');return false;\">Log</a>
+        """
         Marker(
             location=(row["lat"], row["lon"]),
             tooltip=text,
+            popup=folium.Popup(html, max_width=250),
             icon=Icon(color="blue", icon="info-sign"),
         ).add_to(m)
 
@@ -117,6 +125,8 @@ def render_map(loca_df, transformer, selected_boreholes):
             pass
         elif selected_boreholes[["LOCA_NATE", "LOCA_NATN"]].isnull().any().any():
             pass
+        elif len(selected_boreholes) < 2:
+            pass  # Not enough boreholes for PCA
         else:
             pca = PCA(n_components=2)
             pca_coords = pca.fit_transform(
