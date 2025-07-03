@@ -1,4 +1,18 @@
 import streamlit as st
+from section_plot import parse_ags_geol_section
+import tempfile
+import os
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+@st.cache_data
+def _load_borehole_data(ags_file_path, loca_id):
+    """Cache the borehole data loading to improve performance"""
+    geol_df, loca_df, abbr_df = parse_ags_geol_section(ags_file_path)
+    geol_bh = geol_df[geol_df["LOCA_ID"] == loca_id]
+    loca_bh = loca_df[loca_df["LOCA_ID"] == loca_id]
+    return geol_bh, loca_bh, abbr_df
 
 
 def render_borehole_log(
@@ -7,8 +21,6 @@ def render_borehole_log(
     """Display a simple borehole log for the selected LOCA_ID."""
     # Find which AGS file this borehole belongs to
     ags_file = None
-    # If filename_map is a dict of (filename, content) pairs, but ags_files is a list of (filename, content),
-    # ensure we can always find the file even if filename_map is empty (first load edge case)
     if filename_map:
         for fname, content in filename_map.items():
             if loca_id in content:
@@ -24,28 +36,22 @@ def render_borehole_log(
                 break
     if ags_file is None:
         st.warning(f"Borehole {loca_id} not found in any AGS file.")
-        return
-    # Parse AGS file content for this borehole
-    from section_plot import parse_ags_geol_section
-    import tempfile
-    import os
+        return None
 
+    # Write AGS file to temp and load data (cached)
     ags_temp_path = os.path.join(tempfile.gettempdir(), ags_file)
     with open(ags_temp_path, "w", encoding="utf-8") as f:
         f.write(filename_map[ags_file])
-    geol_df, loca_df, abbr_df = parse_ags_geol_section(ags_temp_path)
-    # Filter for this borehole
-    geol_bh = geol_df[geol_df["LOCA_ID"] == loca_id]
-    loca_bh = loca_df[loca_df["LOCA_ID"] == loca_id]
+
+    geol_bh, loca_bh, abbr_df = _load_borehole_data(ags_temp_path, loca_id)
+
     if geol_bh.empty or loca_bh.empty:
         st.warning(f"No data found for borehole {loca_id}.")
-        return
+        return None
+
     st.subheader(f"Borehole Log: {loca_id}")
     st.toast("Scroll down to see Borehole Log", icon="🔽")
     # Draw a single borehole log using the same style as section_plot
-    import matplotlib.pyplot as plt
-    import numpy as np
-
     # Prepare data for plotting
     gl = float(loca_bh.iloc[0]["LOCA_GL"]) if "LOCA_GL" in loca_bh.columns else 0.0
     width = 1.0
