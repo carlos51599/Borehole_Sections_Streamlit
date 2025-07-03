@@ -1,65 +1,76 @@
 """Centralized state management for the application."""
 
 import streamlit as st
-from typing import Any, Dict, Optional
-import pandas as pd
+from typing import Any, Dict, Optional, List, Tuple
 import logging
+from dataclasses import dataclass, field
+from core.ags_parser import AGSData
 
 logger = logging.getLogger(__name__)
 
 
-def init_session_state(defaults: Optional[Dict[str, Any]] = None) -> None:
-    """
-    Initialize session state with default values.
+@dataclass
+class AppState:
+    """Container for application state."""
 
-    Args:
-        defaults: Optional dictionary of default values
-    """
-    _defaults = {
-        "ags_files": None,
-        "show_labels": True,
-        "selected_log_bh": None,
-        "drawn_shapes": [],
-        "last_shape_hash": None,
-        "selected_boreholes": pd.DataFrame(),
-        "map_center": None,
-        "map_zoom": None,
-        "last_drawn_shape": None,
-        "log_fig": None,
-        "show_log_loca_id": None,
-        "current_view": "map",  # Track current view (map/section/log)
-    }
+    # Data state
+    ags_data: Optional[AGSData] = None
+    selected_boreholes: List[str] = field(default_factory=list)
+    current_view: str = "map"  # map, section, or log
+
+    # UI state
+    show_labels: bool = True
+    show_legend: bool = True
+    vertical_exaggeration: float = 1.0
+
+    # Map state
+    map_center: Optional[Tuple[float, float]] = None
+    map_zoom: Optional[int] = None
+    drawn_shapes: List[Dict] = field(default_factory=list)
+
+    # Plot state
+    section_fig: Optional[Any] = None
+    log_fig: Optional[Any] = None
+    current_log_bh: Optional[str] = None
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert state to dictionary."""
+        return {
+            "ags_data": self.ags_data,
+            "selected_boreholes": self.selected_boreholes,
+            "current_view": self.current_view,
+            "show_labels": self.show_labels,
+            "show_legend": self.show_legend,
+            "vertical_exaggeration": self.vertical_exaggeration,
+            "map_center": self.map_center,
+            "map_zoom": self.map_zoom,
+            "drawn_shapes": self.drawn_shapes,
+            "section_fig": self.section_fig,
+            "log_fig": self.log_fig,
+            "current_log_bh": self.current_log_bh,
+        }
+
+
+def init_session_state(defaults: Optional[Dict[str, Any]] = None) -> None:
+    """Initialize session state with default values."""
+    state = AppState()
+    state_dict = state.to_dict()
 
     if defaults:
-        _defaults.update(defaults)
+        state_dict.update(defaults)
 
-    for key, value in _defaults.items():
+    for key, value in state_dict.items():
         if key not in st.session_state:
             st.session_state[key] = value
 
 
 def get_state(key: str, default: Any = None) -> Any:
-    """
-    Get a value from session state.
-
-    Args:
-        key: Session state key
-        default: Default value if key doesn't exist
-
-    Returns:
-        Value from session state or default
-    """
+    """Get a value from session state."""
     return st.session_state.get(key, default)
 
 
 def set_state(key: str, value: Any) -> None:
-    """
-    Set a value in session state.
-
-    Args:
-        key: Session state key
-        value: Value to set
-    """
+    """Set a value in session state."""
     try:
         st.session_state[key] = value
     except Exception as e:
@@ -68,17 +79,29 @@ def set_state(key: str, value: Any) -> None:
 
 def reset_view_state() -> None:
     """Reset view-specific state variables."""
-    view_states = ["selected_log_bh", "drawn_shapes", "last_shape_hash", "log_fig"]
+    view_states = ["current_log_bh", "drawn_shapes", "section_fig", "log_fig"]
     for key in view_states:
         if key in st.session_state:
             del st.session_state[key]
 
 
-def get_selected_boreholes() -> pd.DataFrame:
+def get_selected_boreholes() -> List[str]:
     """Get the currently selected boreholes."""
-    return st.session_state.get("selected_boreholes", pd.DataFrame())
+    return st.session_state.get("selected_boreholes", [])
 
 
 def has_data() -> bool:
-    """Check if any AGS files are loaded."""
-    return bool(st.session_state.get("ags_files"))
+    """Check if any AGS data is loaded."""
+    return bool(st.session_state.get("ags_data"))
+
+
+# Make everything available at package level
+__all__ = [
+    "AppState",
+    "init_session_state",
+    "get_state",
+    "set_state",
+    "reset_view_state",
+    "get_selected_boreholes",
+    "has_data",
+]

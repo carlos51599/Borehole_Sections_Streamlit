@@ -1,7 +1,8 @@
 """Configuration settings for the application."""
 
+import streamlit as st
 from dataclasses import dataclass
-from typing import Dict, Any
+from typing import Dict, Any, ClassVar
 
 
 @dataclass
@@ -9,55 +10,63 @@ class AppConfig:
     """Application configuration settings."""
 
     # Coordinate Reference Systems
-    DEFAULT_CRS = "EPSG:27700"  # British National Grid
-    WGS84_CRS = "EPSG:4326"  # WGS84 (GPS coordinates)
+    DEFAULT_CRS: ClassVar[str] = "EPSG:27700"  # British National Grid
+    WGS84_CRS: ClassVar[str] = "EPSG:4326"  # WGS84 (GPS coordinates)
 
     # Map Settings
-    MAP_DEFAULT_ZOOM = 17
-    MAP_DEFAULT_STYLE = "OpenStreetMap"
-    MAP_ALTERNATIVE_STYLE = "Esri.WorldImagery"
-    MAP_CLUSTER_THRESHOLD = 50  # Number of points before clustering
-    MAP_TILE_CACHE_TTL = 3600  # Tile cache timeout in seconds
+    MAP_DEFAULT_ZOOM: ClassVar[int] = 17
+    MAP_DEFAULT_STYLE: ClassVar[str] = "OpenStreetMap"
+    MAP_ALTERNATIVE_STYLE: ClassVar[str] = "Esri.WorldImagery"
+    MAP_CLUSTER_THRESHOLD: ClassVar[int] = 50  # Number of points before clustering
+    MAP_TILE_CACHE_TTL: ClassVar[int] = 3600  # Tile cache timeout in seconds
 
     # Plot Settings
-    PLOT_DPI = 100
-    DEFAULT_FIGURE_SIZE = (10, 6)
-    BOREHOLE_COLUMN_WIDTH = 4
-    LABEL_FONTSIZE = 8
-    USE_FAST_STYLE = True  # Use matplotlib fast style
+    PLOT_DPI: ClassVar[int] = 100
+    DEFAULT_FIGURE_SIZE: ClassVar[tuple] = (10, 6)
+    BOREHOLE_COLUMN_WIDTH: ClassVar[int] = 4
+    LABEL_FONTSIZE: ClassVar[int] = 8
+    USE_FAST_STYLE: ClassVar[bool] = True  # Use matplotlib fast style
 
     # Cache Settings
-    CACHE_TTL = 3600  # Cache timeout in seconds
-    CACHE_MAX_ENTRIES = 1000  # Maximum cache entries
-    LARGE_DF_CHUNK_SIZE = 10000  # Chunk size for large dataframes
+    CACHE_TTL: ClassVar[int] = 3600  # Cache timeout in seconds
+    CACHE_MAX_ENTRIES: ClassVar[int] = 1000  # Maximum cache entries
+    LARGE_DF_CHUNK_SIZE: ClassVar[int] = 10000  # Chunk size for large dataframes
 
     # Performance Settings
-    ENABLE_PARALLEL = True  # Enable parallel processing
-    MAX_WORKERS = 4  # Maximum number of parallel workers
-    WEBGL_POINT_THRESHOLD = 1000  # Points before switching to WebGL
+    ENABLE_PARALLEL: ClassVar[bool] = True  # Enable parallel processing
+    MAX_WORKERS: ClassVar[int] = 4  # Maximum number of parallel workers
+    WEBGL_POINT_THRESHOLD: ClassVar[int] = 1000  # Points before switching to WebGL
 
     # Memory Settings
-    USE_CATEGORICAL = True  # Use categorical dtypes for strings
-    AGS_REQUIRED_COLUMNS = {  # Only load these columns
+    USE_CATEGORICAL: ClassVar[bool] = True  # Use categorical dtypes for strings
+    AGS_REQUIRED_COLUMNS: ClassVar[Dict] = {  # Only load these columns
         "GEOL": ["LOCA_ID", "GEOL_TOP", "GEOL_BASE", "GEOL_LEG"],
         "LOCA": ["LOCA_ID", "LOCA_GL", "LOCA_FDEP", "LOCA_LAT", "LOCA_LON"],
         "ABBR": ["ABBR_CODE", "ABBR_DESC"],
     }
 
     # Debug Settings
-    DEBUG_MODE = False  # Enable detailed debug logging
-    PROFILE_PERFORMANCE = False  # Enable performance profiling
-    LOG_LEVEL = "INFO"  # Default log level
-    LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    MONITOR_MEMORY = False  # Track memory usage
-    LOG_FILE = "app.log"  # Log file location
+    DEBUG_MODE: ClassVar[bool] = False  # Enable detailed debug logging
+    PROFILE_PERFORMANCE: ClassVar[bool] = False  # Enable performance profiling
+    MONITOR_MEMORY: ClassVar[bool] = False  # Track memory usage
 
     # File Settings
-    ALLOWED_EXTENSIONS = [".ags"]
-    ENCODING = "utf-8"
+    ALLOWED_EXTENSIONS: ClassVar[list] = [".ags"]
+    ENCODING: ClassVar[str] = "utf-8"
 
     # UI Settings
-    GRID_COLUMNS = 6
+    GRID_COLUMNS: ClassVar[int] = 6
+
+    # Instance settings (can be overridden)
+    map_settings: Dict[str, Any] = None
+    plot_settings: Dict[str, Any] = None
+
+    def __post_init__(self):
+        """Initialize instance settings."""
+        if self.map_settings is None:
+            self.map_settings = self.get_map_settings()
+        if self.plot_settings is None:
+            self.plot_settings = self.get_plot_settings()
 
     @staticmethod
     def get_plot_settings() -> Dict[str, Any]:
@@ -79,29 +88,13 @@ class AppConfig:
             "satellite_style": AppConfig.MAP_ALTERNATIVE_STYLE,
         }
 
-    @staticmethod
-    def init_logging() -> None:
-        """Initialize logging configuration."""
-        import logging
-        import sys
 
-        # Set up logging format
-        formatter = logging.Formatter(AppConfig.LOG_FORMAT)
+@st.cache_resource
+def get_config() -> AppConfig:
+    """Get application configuration singleton."""
+    if "config" not in st.session_state:
+        st.session_state.config = AppConfig()
+    return st.session_state.config
 
-        # File handler
-        file_handler = logging.FileHandler(AppConfig.LOG_FILE)
-        file_handler.setFormatter(formatter)
 
-        # Stream handler (console)
-        stream_handler = logging.StreamHandler(sys.stdout)
-        stream_handler.setFormatter(formatter)
-
-        # Root logger configuration
-        root_logger = logging.getLogger()
-        root_logger.setLevel(AppConfig.LOG_LEVEL)
-        root_logger.addHandler(file_handler)
-        root_logger.addHandler(stream_handler)
-
-        # Set debug level if debug mode is enabled
-        if AppConfig.DEBUG_MODE:
-            root_logger.setLevel(logging.DEBUG)
+__all__ = ["AppConfig", "get_config"]

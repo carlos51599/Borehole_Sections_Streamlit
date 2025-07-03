@@ -12,10 +12,20 @@ from visualization.mapping import MapRenderer
 from visualization.plotting import SectionRenderer
 from ui.components import BoreholeSelector, SectionControls
 from ui.state import init_session_state, get_state, set_state
+from core.config import AppConfig
+from core.logging_config import setup_logging
 
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
+# Configure logging and debug settings
+AppConfig.DEBUG_MODE = True
+AppConfig.PROFILE_PERFORMANCE = True
+
+# Set up logging with debug flags from config
+setup_logging(
+    debug=AppConfig.DEBUG_MODE, log_file="app.log" if AppConfig.DEBUG_MODE else None
+)
+
+# Get logger for this module
 logger = logging.getLogger(__name__)
 
 
@@ -26,9 +36,9 @@ init_session_state(
         "selected_boreholes": [],
         "show_log": False,
         "current_log_bh": None,
-        "map_bounds": None,
         "map_center": None,
         "map_zoom": 13,
+        "drawn_shapes": None,
     }
 )
 
@@ -53,6 +63,8 @@ def add_download_button(figure, filename, label="Download Plot"):
 
 def main():
     """Main application entry point"""
+    # Set page to full width
+    st.set_page_config(layout="wide")
     st.title("Borehole Section Viewer")
 
     # File upload
@@ -85,32 +97,64 @@ def main():
         section_controls = SectionControls()
 
         # Layout the interface
-        col1, col2 = st.columns([2, 1])
+        st.write("### Location Map")
+
+        # Split into map and controls with map taking most space
+        col1, col2 = st.columns([5, 1])
 
         with col1:
-            # Render map
-            st.write("### Location Map")
-            map_obj = map_renderer.create_map(
-                selected_boreholes=get_state("selected_boreholes"),
-                zoom_start=get_state("map_zoom", 13),
-            )
-            st_map = st_folium(map_obj, width=600, returned_objects=["bounds", "zoom"])
+            # Create map with current state
+            @st.cache_data
+            def get_map(selected_ids):
+                return map_renderer.create_map(
+                    selected_boreholes=selected_ids,
+                    zoom_start=st.session_state.get("map_zoom", 13),
+                    center=st.session_state.get("map_center"),
+                )
 
-            # Update map state
-            if st_map.get("bounds"):
-                set_state("map_bounds", st_map["bounds"])
-            if st_map.get("zoom"):
-                set_state("map_zoom", st_map["zoom"])
+            # Get map with current state
+            map_obj = get_map(get_state("selected_boreholes"))
+
+            # Render map and get state
+            map_data = st_folium(
+                map_obj,
+                width="100%",
+                height=600,
+                key="map",
+                returned_objects=["last_active_drawing", "zoom", "center"],
+            )
+
+            # Handle map interactions
+            if map_data:
+                # Update map state
+                if "zoom" in map_data:
+                    st.session_state.map_zoom = map_data["zoom"]
+                if "center" in map_data:
+                    st.session_state.map_center = map_data["center"]
+
+                # Handle drawings
+                if map_data.get("last_active_drawing"):
+                    set_state("drawn_shapes", map_data["last_active_drawing"])
+                    st.rerun()
 
         with col2:
-            # Borehole selection
-            selected_boreholes = borehole_selector.render(
-                default=get_state("selected_boreholes")
-            )
-            set_state("selected_boreholes", selected_boreholes)
+            if st.button("Clear Selection"):
+                set_state("drawn_shapes", None)
+                set_state("selected_boreholes", None)
+                st.rerun()
+
+            # Borehole selection from drawn shapes
+            selected_boreholes = borehole_selector.render()
+            if not selected_boreholes.empty:
+                set_state("selected_boreholes", selected_boreholes)
+                # Show selection count
+                n_selected = len(selected_boreholes)
+                st.write(
+                    f"Selected: {n_selected} borehole{'s' if n_selected != 1 else ''}"
+                )
 
         # Section controls and plot
-        if selected_boreholes:
+        if not selected_boreholes.empty:
             st.write("---")
 
             # Get plot settings

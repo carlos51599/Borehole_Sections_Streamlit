@@ -1,0 +1,687 @@
+2025-07-03 21:42:03,650 - core.ags_parser - ERROR - Error parsing AGS file SESR - 2025-05-08 - Preliminary SM.ags: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,650 - core.ags_parser - ERROR - Error parsing AGS file SESR - 2025-05-08 - Preliminary SM.ags: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,650 - core.ags_parser - ERROR - Error parsing AGS file SESR - 2025-05-08 - Preliminary SM.ags: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,692 - core.ags_parser - ERROR - Error parsing multiple AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,692 - core.ags_parser - ERROR - Error parsing multiple AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,692 - core.ags_parser - ERROR - Error parsing multiple AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,699 - core.ags_parser - ERROR - Error parsing AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,699 - core.ags_parser - ERROR - Error parsing AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:42:03,699 - core.ags_parser - ERROR - Error parsing AGS files: 7 columns passed, passed data had 6 columns
+2025-07-03 21:49:05,789 - __main__ - ERROR - Application error: Cannot hash argument 'self' (of type `visualization.mapping.map_renderer.MapRenderer`) in '_calculate_center'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _calculate_center(_self, ...):
+    ...
+```
+            
+2025-07-03 21:49:05,789 - __main__ - ERROR - Application error: Cannot hash argument 'self' (of type `visualization.mapping.map_renderer.MapRenderer`) in '_calculate_center'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _calculate_center(_self, ...):
+    ...
+```
+            
+2025-07-03 21:49:05,789 - __main__ - ERROR - Application error: Cannot hash argument 'self' (of type `visualization.mapping.map_renderer.MapRenderer`) in '_calculate_center'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _calculate_center(_self, ...):
+    ...
+```
+            
+2025-07-03 21:54:53,914 - visualization.mapping.map_renderer - WARNING - Dropping 107 rows with invalid coordinates
+2025-07-03 21:54:53,914 - visualization.mapping.map_renderer - WARNING - Dropping 107 rows with invalid coordinates
+2025-07-03 21:54:53,914 - visualization.mapping.map_renderer - WARNING - Dropping 107 rows with invalid coordinates
+2025-07-03 21:54:53,914 - visualization.mapping.map_renderer - WARNING - Dropping 107 rows with invalid coordinates
+2025-07-03 21:54:53,935 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found after validation
+2025-07-03 21:54:53,935 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found after validation
+2025-07-03 21:54:53,935 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found after validation
+2025-07-03 21:54:53,935 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found after validation
+2025-07-03 21:54:53,943 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found after validation
+2025-07-03 21:54:53,943 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found after validation
+2025-07-03 21:54:53,943 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found after validation
+2025-07-03 21:54:53,943 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found after validation
+2025-07-03 22:02:44,577 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:02:44,577 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:02:44,577 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:02:44,577 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:02:44,577 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:02:45,208 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:02:45,208 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:02:45,208 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:02:45,208 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:02:45,208 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:02:45,831 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:02:45,831 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:02:45,831 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:02:45,831 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:02:45,831 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:02:45,924 - visualization.mapping.map_renderer - ERROR - Data validation failed: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,924 - visualization.mapping.map_renderer - ERROR - Data validation failed: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,924 - visualization.mapping.map_renderer - ERROR - Data validation failed: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,924 - visualization.mapping.map_renderer - ERROR - Data validation failed: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,924 - visualization.mapping.map_renderer - ERROR - Data validation failed: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,931 - __main__ - ERROR - Application error: Failed to validate borehole data: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,931 - __main__ - ERROR - Application error: Failed to validate borehole data: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,931 - __main__ - ERROR - Application error: Failed to validate borehole data: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,931 - __main__ - ERROR - Application error: Failed to validate borehole data: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:02:45,931 - __main__ - ERROR - Application error: Failed to validate borehole data: unsupported operand type(s) for &: 'Categorical' and 'Categorical'
+2025-07-03 22:06:28,718 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:06:28,718 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:06:28,718 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:06:29,353 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:06:29,353 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:06:29,353 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:06:29,935 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:06:29,935 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:06:29,935 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:06:29,981 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:06:29,981 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:06:29,981 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:06:29,988 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:06:29,988 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:06:29,988 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:06:29,996 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:06:29,996 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:06:29,996 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:41,583 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:09:41,583 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:09:41,583 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:09:41,583 - core.ags_parser - INFO - Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 4 columns
+2025-07-03 22:09:42,241 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:09:42,241 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:09:42,241 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:09:42,241 - core.ags_parser - INFO - Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 107 rows, 5 columns
+2025-07-03 22:09:42,874 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:09:42,874 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:09:42,874 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:09:42,874 - core.ags_parser - INFO - Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 2 columns
+2025-07-03 22:09:43,181 - core.ags_parser - ERROR - Error converting coordinates: 'LOCA_NATE'
+2025-07-03 22:09:43,181 - core.ags_parser - ERROR - Error converting coordinates: 'LOCA_NATE'
+2025-07-03 22:09:43,181 - core.ags_parser - ERROR - Error converting coordinates: 'LOCA_NATE'
+2025-07-03 22:09:43,181 - core.ags_parser - ERROR - Error converting coordinates: 'LOCA_NATE'
+2025-07-03 22:09:43,193 - core.ags_parser - INFO - Final coordinate validation: 107/107 valid lat/lon pairs
+2025-07-03 22:09:43,193 - core.ags_parser - INFO - Final coordinate validation: 107/107 valid lat/lon pairs
+2025-07-03 22:09:43,193 - core.ags_parser - INFO - Final coordinate validation: 107/107 valid lat/lon pairs
+2025-07-03 22:09:43,193 - core.ags_parser - INFO - Final coordinate validation: 107/107 valid lat/lon pairs
+2025-07-03 22:09:43,212 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:09:43,212 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:09:43,212 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:09:43,212 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:09:43,222 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,222 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,222 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,222 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,232 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,232 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,232 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:09:43,232 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:20:45,752 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:20:45,752 - visualization.mapping.map_renderer - WARNING - Found 0/107 boreholes with valid coordinates. Others will be excluded from the map.
+2025-07-03 22:20:45,762 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:20:45,762 - visualization.mapping.map_renderer - ERROR - Data validation failed: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:20:45,771 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:20:45,771 - __main__ - ERROR - Application error: Failed to validate borehole data: No valid borehole locations found. Please check coordinate format in LOCA_LAT and LOCA_LON columns.
+2025-07-03 22:45:37,292 - __main__ - ERROR - Application error: MapRenderer.__init__() takes 1 positional argument but 2 were given
+2025-07-03 22:45:37,292 - __main__ - ERROR - Application error: MapRenderer.__init__() takes 1 positional argument but 2 were given
+2025-07-03 22:45:37,292 - __main__ - ERROR - Application error: MapRenderer.__init__() takes 1 positional argument but 2 were given
+2025-07-03 22:45:37,292 - __main__ - ERROR - Application error: MapRenderer.__init__() takes 1 positional argument but 2 were given
+2025-07-03 22:48:59,418 - utils.coordinates - WARNING - Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:48:59,418 - utils.coordinates - WARNING - Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:48:59,418 - utils.coordinates - WARNING - Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:48:59,418 - utils.coordinates - WARNING - Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:48:59,418 - utils.coordinates - WARNING - Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:48:59,431 - utils.coordinates - WARNING - Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:48:59,431 - utils.coordinates - WARNING - Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:48:59,431 - utils.coordinates - WARNING - Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:48:59,431 - utils.coordinates - WARNING - Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:48:59,431 - utils.coordinates - WARNING - Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:49:01,024 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:01,024 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:01,024 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:01,024 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:01,024 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:01,033 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:01,033 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:01,033 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:01,033 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:01,033 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:01,092 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:01,092 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:01,092 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:01,092 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:01,092 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,828 - visualization.mapping.map_renderer - INFO - Found 94/94 boreholes with valid coordinates
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,836 - visualization.mapping.map_renderer - ERROR - Error creating map: 'Categorical' with dtype category does not support reduction 'median'
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:49:02,886 - ui.components.borehole_selector - ERROR - Error rendering borehole selector: Cannot hash argument 'self' (of type `ui.components.borehole_selector.BoreholeSelector`) in '_get_borehole_info'.
+
+To address this, you can tell Streamlit not to hash this argument by adding a
+leading underscore to the argument's name in the function signature:
+
+```
+@st.cache_data
+def _get_borehole_info(_self, ...):
+    ...
+```
+            
+2025-07-03 22:56:47 INFO parse_ags_group took 0.45s
+2025-07-03 22:56:47 INFO parse_ags_group took 0.45s
+2025-07-03 22:56:47 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 22:56:47 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 22:56:47 INFO parse_ags_group took 0.52s
+2025-07-03 22:56:47 INFO parse_ags_group took 0.52s
+2025-07-03 22:56:47 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 22:56:47 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 22:56:48 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:56:48 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 22:56:48 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:56:48 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 22:56:48 INFO Successfully converted 94/94 coordinates
+2025-07-03 22:56:48 INFO Successfully converted 94/94 coordinates
+2025-07-03 22:56:48 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 22:56:48 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 22:56:48 INFO convert_coordinates took 1.20s
+2025-07-03 22:56:48 INFO convert_coordinates took 1.20s
+2025-07-03 22:56:48 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 22:56:48 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 22:56:48 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 22:56:48 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 22:56:48 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 22:56:48 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 22:56:49 INFO parse_ags_group took 0.58s
+2025-07-03 22:56:49 INFO parse_ags_group took 0.58s
+2025-07-03 22:56:49 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 22:56:49 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 22:56:49 INFO parse_ags_file took 2.83s
+2025-07-03 22:56:49 INFO parse_ags_file took 2.83s
+2025-07-03 22:56:50 INFO Successfully converted 94/94 coordinates
+2025-07-03 22:56:50 INFO Successfully converted 94/94 coordinates
+2025-07-03 22:56:50 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 22:56:50 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 22:56:50 INFO convert_coordinates took 0.61s
+2025-07-03 22:56:50 INFO convert_coordinates took 0.61s
+2025-07-03 22:56:50 INFO parse_multiple_ags_files took 3.68s
+2025-07-03 22:56:50 INFO parse_multiple_ags_files took 3.68s
+2025-07-03 22:56:51 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 22:56:51 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 22:56:51 ERROR [visualization.mapping.map_renderer:131] Error creating map: list indices must be integers or slices, not str
+2025-07-03 22:56:51 ERROR [visualization.mapping.map_renderer:131] Error creating map: list indices must be integers or slices, not str
+2025-07-03 22:56:55 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 22:56:55 ERROR [visualization.mapping.map_renderer:131] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:08 INFO parse_ags_group took 0.24s
+2025-07-03 23:07:08 INFO parse_ags_group took 0.24s
+2025-07-03 23:07:08 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:07:08 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:07:08 INFO parse_ags_group took 0.24s
+2025-07-03 23:07:08 INFO parse_ags_group took 0.24s
+2025-07-03 23:07:08 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:07:08 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:07:09 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:07:09 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:07:09 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:07:09 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:07:09 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:07:09 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:07:09 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:07:09 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:07:09 INFO convert_coordinates took 0.50s
+2025-07-03 23:07:09 INFO convert_coordinates took 0.50s
+2025-07-03 23:07:09 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:07:09 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:07:09 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:07:09 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:07:09 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:07:09 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:07:09 INFO parse_ags_group took 0.27s
+2025-07-03 23:07:09 INFO parse_ags_group took 0.27s
+2025-07-03 23:07:09 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:07:09 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:07:09 INFO parse_ags_file took 1.29s
+2025-07-03 23:07:09 INFO parse_ags_file took 1.29s
+2025-07-03 23:07:10 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:07:10 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:07:10 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:07:10 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:07:10 INFO convert_coordinates took 0.36s
+2025-07-03 23:07:10 INFO convert_coordinates took 0.36s
+2025-07-03 23:07:10 INFO parse_multiple_ags_files took 1.77s
+2025-07-03 23:07:10 INFO parse_multiple_ags_files took 1.77s
+2025-07-03 23:07:10 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:10 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:10 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:10 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:10 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:10 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:11 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:11 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:11 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:15 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:15 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:15 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:16 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:16 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:16 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:19 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:19 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:19 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:19 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:19 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:19 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:20 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:20 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:20 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:22 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:22 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:22 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:22 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:22 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:22 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:24 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:24 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:24 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:26 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:26 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:26 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:28 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:28 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:28 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:30 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:30 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:30 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:33 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:33 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:33 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:33 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:33 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:34 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:34 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:34 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:35 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:35 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:35 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:36 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:36 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:36 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:39 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:39 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:39 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:43 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:43 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:43 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:44 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:44 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:44 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:45 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:45 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:45 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:07:45 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:07:45 ERROR [visualization.mapping.map_renderer:176] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:07:45 ERROR [__main__:149] Application error: BoreholeSelector.render() got an unexpected keyword argument 'default'
+2025-07-03 23:11:46 INFO parse_ags_group took 0.19s
+2025-07-03 23:11:46 INFO parse_ags_group took 0.19s
+2025-07-03 23:11:46 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:11:46 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:11:47 INFO parse_ags_group took 0.24s
+2025-07-03 23:11:47 INFO parse_ags_group took 0.24s
+2025-07-03 23:11:47 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:11:47 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:11:47 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:11:47 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:11:47 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:11:47 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:11:47 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:11:47 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:11:47 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:11:47 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:11:47 INFO convert_coordinates took 0.59s
+2025-07-03 23:11:47 INFO convert_coordinates took 0.59s
+2025-07-03 23:11:47 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:11:47 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:11:47 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:11:47 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:11:47 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:11:47 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:11:48 INFO parse_ags_group took 0.26s
+2025-07-03 23:11:48 INFO parse_ags_group took 0.26s
+2025-07-03 23:11:48 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:11:48 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:11:48 INFO parse_ags_file took 1.30s
+2025-07-03 23:11:48 INFO parse_ags_file took 1.30s
+2025-07-03 23:11:48 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:11:48 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:11:48 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:11:48 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:11:48 INFO convert_coordinates took 0.41s
+2025-07-03 23:11:48 INFO convert_coordinates took 0.41s
+2025-07-03 23:11:48 INFO parse_multiple_ags_files took 1.81s
+2025-07-03 23:11:48 INFO parse_multiple_ags_files took 1.81s
+2025-07-03 23:11:48 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:11:48 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:11:48 ERROR [visualization.mapping.map_renderer:177] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:11:48 ERROR [visualization.mapping.map_renderer:177] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:11:48 ERROR [__main__:148] Application error: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-07-03 23:11:48 ERROR [__main__:148] Application error: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-07-03 23:11:49 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:11:49 ERROR [visualization.mapping.map_renderer:177] Error creating map: list indices must be integers or slices, not str
+2025-07-03 23:11:49 ERROR [__main__:148] Application error: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-07-03 23:15:45 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:15:45 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:15:47 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:15:47 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:22 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:22 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:23 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:23 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:24 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:24 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:26 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:26 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:28 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:28 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:29 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:29 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:30 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:30 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:32 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:32 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:34 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:34 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:35 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:35 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:36 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:36 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:38 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:38 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:39 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:39 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:41 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:41 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:41 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:41 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:43 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:43 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:45 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:45 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:47 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:47 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:16:48 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:16:48 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:17:03 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:17:03 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:17:05 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:17:05 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:21:35 INFO parse_ags_group took 0.21s
+2025-07-03 23:21:35 INFO parse_ags_group took 0.21s
+2025-07-03 23:21:35 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:21:35 INFO Successfully parsed GEOL group from SESR - 2025-05-08 - Preliminary SM.ags: 1009 rows, 12 columns
+2025-07-03 23:21:35 INFO parse_ags_group took 0.21s
+2025-07-03 23:21:35 INFO parse_ags_group took 0.21s
+2025-07-03 23:21:35 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:21:35 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:21:36 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:21:36 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:21:36 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:21:36 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:21:36 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:21:36 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:21:36 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:21:36 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:21:36 INFO convert_coordinates took 0.38s
+2025-07-03 23:21:36 INFO convert_coordinates took 0.38s
+2025-07-03 23:21:36 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:21:36 INFO Using LOCA_LAT/LOCA_LON columns for coordinates
+2025-07-03 23:21:36 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:21:36 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:21:36 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:21:36 INFO Successfully parsed LOCA group from SESR - 2025-05-08 - Preliminary SM.ags: 94 rows, 47 columns
+2025-07-03 23:21:36 INFO parse_ags_group took 0.29s
+2025-07-03 23:21:36 INFO parse_ags_group took 0.29s
+2025-07-03 23:21:36 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:21:36 INFO Successfully parsed ABBR group from SESR - 2025-05-08 - Preliminary SM.ags: 281 rows, 6 columns
+2025-07-03 23:21:36 INFO parse_ags_file took 1.12s
+2025-07-03 23:21:36 INFO parse_ags_file took 1.12s
+2025-07-03 23:21:36 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:21:36 INFO Successfully converted 94/94 coordinates
+2025-07-03 23:21:36 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:21:36 DEBUG Sample conversion - E/N: 444475.1/192526.48 -> Lat/Lon: 51.629801/-1.358852
+2025-07-03 23:21:36 INFO convert_coordinates took 0.47s
+2025-07-03 23:21:36 INFO convert_coordinates took 0.47s
+2025-07-03 23:21:36 INFO parse_multiple_ags_files took 1.68s
+2025-07-03 23:21:36 INFO parse_multiple_ags_files took 1.68s
+2025-07-03 23:21:36 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:21:36 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:21:36 INFO Centering map on borehole BH428 at 51.642682, -1.334639
+2025-07-03 23:21:36 INFO Centering map on borehole BH428 at 51.642682, -1.334639
+2025-07-03 23:21:36 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:21:36 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:21:54 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:21:54 INFO Centering map on borehole BH428 at 51.642682, -1.334639
+2025-07-03 23:21:54 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:21:55 INFO Found 94/94 boreholes with valid coordinates
+2025-07-03 23:21:55 INFO Centering map on borehole BH428 at 51.642682, -1.334639
+2025-07-03 23:21:55 INFO Adding markers for 94 valid boreholes
+2025-07-03 23:23:59 ERROR [__main__:182] Application error: module 'streamlit' has no attribute 'experimental_rerun'
+2025-07-03 23:27:53 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:27:53 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:27:54 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:27:54 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:27:54 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:27:54 WARNING [utils.coordinates] Northing 0.0 outside typical UK range (5000-1220000)
+2025-07-03 23:27:54 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:27:54 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:27:58 ERROR [visualization.mapping.map_renderer:250] Error creating map: Location should support indexing, like a list or a tuple does, instead got {'lat': 51.64268154767536, 'lng': -1.334638615142595} of type <class 'dict'>.
+2025-07-03 23:27:59 ERROR [visualization.mapping.map_renderer:250] Error creating map: Location should support indexing, like a list or a tuple does, instead got {'lat': 51.64268154767536, 'lng': -1.334638615142595} of type <class 'dict'>.
+2025-07-03 23:28:00 ERROR [visualization.mapping.map_renderer:250] Error creating map: Location should support indexing, like a list or a tuple does, instead got {'lat': 54.5, 'lng': -2} of type <class 'dict'>.
+2025-07-03 23:28:06 ERROR [visualization.mapping.map_renderer:250] Error creating map: Location should support indexing, like a list or a tuple does, instead got {'lat': 53.839563678833606, 'lng': -5.870828124860233} of type <class 'dict'>.
+2025-07-03 23:32:16 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:32:16 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:32:16 WARNING [core.ags_parser] Found 13 rows with invalid coordinates
+2025-07-03 23:32:17 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:32:17 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:32:17 WARNING [utils.coordinates] Easting 0.0 outside typical UK range (80000-655000)
+2025-07-03 23:32:17 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:32:17 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:32:17 WARNING [core.ags_parser] 94 locations have invalid lat/lon coordinates
+2025-07-03 23:32:17 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:17 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:17 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:19 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:19 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:19 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:21 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:21 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:21 WARNING [visualization.mapping.map_renderer] Invalid location format: [51.64268154767536, -1.334638615142595], using UK default
+2025-07-03 23:32:23 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:23 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:23 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:24 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:24 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:24 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:30 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:30 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:30 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:31 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:31 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:31 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:33 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:33 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:33 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:34 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:34 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:34 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:36 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:36 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:36 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.47183320548085, 'lng': -1.9030718330440104}, using UK default
+2025-07-03 23:32:38 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:38 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:38 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:40 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:40 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:40 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:42 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:42 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:42 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:32:44 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:44 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:44 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:45 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:45 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:45 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:47 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:47 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:47 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:49 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:49 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:49 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:50 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:50 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:50 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:51 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:51 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:51 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:53 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:53 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:53 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:55 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:55 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:55 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.4632535514786, 'lng': -1.8560652035257275}, using UK default
+2025-07-03 23:32:57 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:32:57 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:32:57 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:32:59 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:32:59 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:33:00 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:33:00 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:33:00 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 51.65466690189882, 'lng': -1.311914796887317}, using UK default
+2025-07-03 23:33:01 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:33:01 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:33:01 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:33:03 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:33:03 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
+2025-07-03 23:33:03 WARNING [visualization.mapping.map_renderer] Invalid location format: {'lat': 54.5, 'lng': -2}, using UK default
