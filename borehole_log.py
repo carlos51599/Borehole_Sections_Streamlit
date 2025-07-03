@@ -7,10 +7,21 @@ def render_borehole_log(
     """Display a simple borehole log for the selected LOCA_ID."""
     # Find which AGS file this borehole belongs to
     ags_file = None
-    for fname, content in filename_map.items():
-        if loca_id in content:
-            ags_file = fname
-            break
+    # If filename_map is a dict of (filename, content) pairs, but ags_files is a list of (filename, content),
+    # ensure we can always find the file even if filename_map is empty (first load edge case)
+    if filename_map:
+        for fname, content in filename_map.items():
+            if loca_id in content:
+                ags_file = fname
+                break
+    if ags_file is None:
+        # fallback: search in ags_files (for first load)
+        for fname, content in ags_files:
+            if loca_id in content:
+                ags_file = fname
+                # also update filename_map for future calls
+                filename_map[fname] = content
+                break
     if ags_file is None:
         st.warning(f"Borehole {loca_id} not found in any AGS file.")
         return
@@ -38,19 +49,21 @@ def render_borehole_log(
     # Prepare data for plotting
     gl = float(loca_bh.iloc[0]["LOCA_GL"]) if "LOCA_GL" in loca_bh.columns else 0.0
     width = 1.0
-    # Calculate borehole length for dynamic scaling
-    min_top = geol_bh["GEOL_TOP"].min()
-    max_base = geol_bh["GEOL_BASE"].max()
-    total_depth = abs(max_base - min_top)
-    # Set a reasonable aspect ratio: width fixed, height based on depth (but capped)
-    width_inches = 1.5
-    min_height = 1.5
-    max_height = fig_height
-    height_inches = min(max(min_height, total_depth / 15), max_height)
+    # --- Section-like vertical sizing logic ---
+    # Calculate elevation for each interval (ELEV = LOCA_GL - depth)
+    geol_bh = geol_bh.copy()
+    geol_bh["ELEV_TOP"] = gl - geol_bh["GEOL_TOP"].abs()
+    geol_bh["ELEV_BASE"] = gl - geol_bh["GEOL_BASE"].abs()
+    elev_max = geol_bh[["ELEV_TOP", "ELEV_BASE"]].max().max()
+    elev_min = geol_bh[["ELEV_TOP", "ELEV_BASE"]].min().min()
+    # Section plot uses: fig, ax = plt.subplots(figsize=(max(8, len(boreholes) * 1.5), 6))
+    # For a single log, use a fixed width and height proportional to depth (min 6)
+    width_inches = 2.5
+    # Reduce the vertical size to a third of previous
+    height_inches = max(2, (elev_max - elev_min) * 0.23)  # scale for depth, min 2
     fig, ax = plt.subplots(
         figsize=(width_inches, height_inches), dpi=100, constrained_layout=False
     )
-    # Make the plot area more compact by reducing margins
     plt.subplots_adjust(left=0.25, right=0.75, top=0.98, bottom=0.08)
     # Assign a color to each unique GEOL_LEG code
     unique_leg = geol_bh["GEOL_LEG"].unique()

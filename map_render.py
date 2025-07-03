@@ -137,10 +137,26 @@ def render_map(loca_df, transformer, selected_boreholes):
 
             mean_coords = selected_boreholes[["LOCA_NATE", "LOCA_NATN"]].mean().values
             direction = pca.components_[0]
-            length = max(pca_coords[:, 0]) - min(pca_coords[:, 0])
-            buffer = 0.2 * length
-            start = mean_coords + direction * (-length / 2 - buffer)
-            end = mean_coords + direction * (length / 2 + buffer)
+            # Draw the section axis line with a length proportional to the map window size (approximate)
+            # Use the map's current zoom to estimate a reasonable length in meters
+            map_zoom = st.session_state.get("map_zoom", 17)
+            import math
+
+            map_center = st.session_state.get("map_center")
+            if map_center:
+                center_lat = map_center[0]
+            else:
+                center_lat = loca_df["lat"].median()
+            # At zoom 17, map width is about 1km; scale with zoom (lower zoom = larger area)
+            base_length = 1000  # meters
+            zoom_factor = 2 ** (17 - map_zoom)
+            axis_length_m = (
+                base_length * zoom_factor
+            ) / 3  # Reduce to a third of previous length
+            # Direction vector (unit)
+            direction_unit = direction / (direction**2).sum() ** 0.5
+            start = mean_coords - direction_unit * (axis_length_m / 2)
+            end = mean_coords + direction_unit * (axis_length_m / 2)
             latlon_start = transformer.transform(start[0], start[1])[::-1]
             latlon_end = transformer.transform(end[0], end[1])[::-1]
             PolyLine(
@@ -151,5 +167,13 @@ def render_map(loca_df, transformer, selected_boreholes):
                 dash_array="5, 5",
                 tooltip="PCA section line",
             ).add_to(m)
+
+    # --- Remove previous section selection and axis line if a log plot is being shown ---
+    import pandas as pd
+
+    if st.session_state.get("show_log_loca_id"):
+        st.session_state["last_drawn_shape"] = None
+        st.session_state["last_shape_hash"] = None
+        st.session_state["selected_boreholes"] = pd.DataFrame()
 
     return m

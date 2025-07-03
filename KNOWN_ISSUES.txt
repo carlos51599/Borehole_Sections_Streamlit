@@ -1,0 +1,15 @@
+Known Issues with Geo_Borehole_Sections_Streamlit
+===============================================
+
+1. App breaks if the log link is the first feature used when opening.
+   - If you click a log link before uploading/selecting AGS files or before any boreholes are selected, the app may crash or behave unexpectedly.
+
+2. Log link takes ages to load.
+   - There is a noticeable delay when clicking a log link before the log plot appears. This is due to Streamlit rerun cycles and session state updates.
+
+3. When I check/uncheck layers in log plot, log disappears.
+   - Interacting with the "Labels" checkbox or other controls in the log plot can cause the log to disappear, requiring you to reselect the borehole or trigger the log link again.
+
+---
+
+Please report any additional issues to the project maintainer.

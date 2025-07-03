@@ -13,18 +13,6 @@ from borehole_log import render_borehole_log
 
 st.set_page_config(layout="wide")
 
-# --- Show reload prompt on first app open ---
-if "reloaded_once" not in st.session_state:
-    st.markdown(
-        """
-        <div style="background-color:#fff0f0;padding:10px 16px;border-radius:6px;border:1px solid #ffcccc;margin-bottom:12px;">
-            <span style="color:#b00020;font-weight:bold;">Please reload the page (Ctrl+R or F5) to ensure the app works correctly on first load.</span>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.session_state["reloaded_once"] = True
-
 if "ags_files" not in st.session_state:
     uploaded_files = st.file_uploader(
         "Upload one or more AGS files",
@@ -40,6 +28,7 @@ if "ags_files" not in st.session_state:
         st.stop()
 
 loca_df, filename_map = load_all_loca_data(st.session_state["ags_files"])
+
 
 if loca_df.empty:
     st.warning(
@@ -126,36 +115,6 @@ if map_data and map_data.get("last_object_clicked_tooltip"):
         bh_id = clicked.split("|")[0].strip()
         st.session_state["show_log_loca_id"] = bh_id
 
-if st.session_state["show_log_loca_id"]:
-    # Try to auto-scroll to the log plot using JS (works in some browsers/Streamlit versions)
-    st.markdown(
-        """
-        <script>
-        setTimeout(function() {
-            var el = window.parent.document.querySelector('section.main');
-            if (el) { el.scrollTo({top: el.scrollHeight, behavior: 'smooth'}); }
-        }, 300);
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-    # Show Labels checkbox just above the log plot (only one global checkbox)
-    if "show_labels" not in st.session_state:
-        st.session_state["show_labels"] = True
-    st.session_state["show_labels"] = st.checkbox(
-        "Labels",
-        value=st.session_state["show_labels"],
-        help="Show/hide GEOL_LEG labels on plots.",
-        key="labels_checkbox",
-    )
-    render_borehole_log(
-        st.session_state["show_log_loca_id"],
-        filename_map,
-        st.session_state["ags_files"],
-        show_labels=st.session_state["show_labels"],
-        fig_height=12,
-    )
-    st.stop()
 
 if map_data and map_data.get("last_active_drawing"):
     geom = map_data["last_active_drawing"]["geometry"]
@@ -192,7 +151,7 @@ if selected is not None and not selected.empty:
     if not filtered_ids:
         st.warning("No boreholes selected. Please check at least one borehole.")
     elif len(filtered_ids) == 1:
-        # If only one borehole is selected, show the log plot instead of the section plot
+        # Show log plot immediately after single selection
         if "show_labels" not in st.session_state:
             st.session_state["show_labels"] = True
         st.session_state["show_labels"] = st.checkbox(
@@ -237,3 +196,22 @@ if selected is not None and not selected.empty:
             )
 else:
     st.info("Draw a rectangle or polygon to select boreholes.")
+
+# --- Show log plot if triggered by Log link or marker click (AFTER map and selection UI) ---
+if st.session_state.get("show_log_loca_id"):
+    if "show_labels" not in st.session_state:
+        st.session_state["show_labels"] = True
+    st.session_state["show_labels"] = st.checkbox(
+        "Labels",
+        value=st.session_state["show_labels"],
+        help="Show/hide GEOL_LEG labels on plots.",
+        key="labels_checkbox",
+    )
+    render_borehole_log(
+        st.session_state["show_log_loca_id"],
+        filename_map,
+        st.session_state["ags_files"],
+        show_labels=st.session_state["show_labels"],
+        fig_height=12,
+    )
+    st.session_state["show_log_loca_id"] = None
