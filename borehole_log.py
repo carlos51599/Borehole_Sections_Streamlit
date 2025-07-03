@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def render_borehole_log(
-    loca_id, filename_map, ags_files, show_labels=True, fig_height=2.5
+    loca_id, filename_map, ags_files, show_labels=True, fig_height=2.5, fig_width=2.5
 ):
     """Display a simple borehole log for the selected LOCA_ID."""
     # Find which AGS file this borehole belongs to
@@ -49,20 +49,13 @@ def render_borehole_log(
     # Prepare data for plotting
     gl = float(loca_bh.iloc[0]["LOCA_GL"]) if "LOCA_GL" in loca_bh.columns else 0.0
     width = 1.0
-    # --- Section-like vertical sizing logic ---
     # Calculate elevation for each interval (ELEV = LOCA_GL - depth)
     geol_bh = geol_bh.copy()
     geol_bh["ELEV_TOP"] = gl - geol_bh["GEOL_TOP"].abs()
     geol_bh["ELEV_BASE"] = gl - geol_bh["GEOL_BASE"].abs()
-    elev_max = geol_bh[["ELEV_TOP", "ELEV_BASE"]].max().max()
-    elev_min = geol_bh[["ELEV_TOP", "ELEV_BASE"]].min().min()
-    # Section plot uses: fig, ax = plt.subplots(figsize=(max(8, len(boreholes) * 1.5), 6))
-    # For a single log, use a fixed width and height proportional to depth (min 6)
-    width_inches = 2.5
-    # Reduce the vertical size to a third of previous
-    height_inches = max(2, (elev_max - elev_min) * 0.23)  # scale for depth, min 2
+    # Plot size is determined only by fig_width and fig_height passed from the caller
     fig, ax = plt.subplots(
-        figsize=(width_inches, height_inches), dpi=100, constrained_layout=False
+        figsize=(fig_width, fig_height), dpi=100, constrained_layout=False
     )
     plt.subplots_adjust(left=0.25, right=0.75, top=0.98, bottom=0.08)
     # Assign a color to each unique GEOL_LEG code
@@ -160,8 +153,8 @@ def render_borehole_log(
                 ),
             )
             legend_labels_added.add(prev_leg)
-    # Draw ground level line
-    ax.plot([-width / 2, width / 2], [gl, gl], color="k", lw=2, label="Ground Level")
+    # Draw ground level line (do not add to legend)
+    ax.plot([-width / 2, width / 2], [gl, gl], color="k", lw=2)
     ax.set_xlim(-width, width)
     elev_max = max(gl, geol_bh["GEOL_TOP"].apply(lambda d: gl - abs(d)).max())
     elev_min = min(gl, geol_bh["GEOL_BASE"].apply(lambda d: gl - abs(d)).min())
