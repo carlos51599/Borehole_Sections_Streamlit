@@ -16,36 +16,25 @@ def render_map(loca_df, transformer, selected_boreholes):
 
     for _, row in loca_df.iterrows():
         text = f"{row['LOCA_ID']} | GL: {row.get('LOCA_GL', '?')} | Depth: {row.get('LOCA_FDEP', '?')}"
-        # Popup with only borehole info (no log button or form)
+        # Popup with only borehole info (no log link, no JS)
         popup_html = f"""
         <b>{row['LOCA_ID']}</b><br>
         GL: {row.get('LOCA_GL', '?')}<br>
         Depth: {row.get('LOCA_FDEP', '?')}<br>
         """
         popup = folium.Popup(popup_html, max_width=250)
-        marker = Marker(
+        # Determine marker color: red if selected, blue otherwise
+        is_selected = False
+        if selected_boreholes is not None and not selected_boreholes.empty:
+            if row["LOCA_ID"] in selected_boreholes["LOCA_ID"].values:
+                is_selected = True
+        marker_color = "green" if is_selected else "blue"  # <-- Marker color logic
+        Marker(
             location=(row["lat"], row["lon"]),
             tooltip=text,
             popup=popup,
-            icon=Icon(color="blue", icon="info-sign"),
-        )
-        # Attach LOCA_ID as a property for st_folium click access
-        marker.add_child(
-            folium.GeoJson(
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [row["lon"], row["lat"]],
-                    },
-                    "properties": {"LOCA_ID": row["LOCA_ID"]},
-                },
-                name=None,
-                tooltip=None,
-                popup=None,
-            )
-        )
-        marker.add_to(m)
+            icon=Icon(color=marker_color, icon="info-sign"),
+        ).add_to(m)
 
     draw_options = {
         "polyline": True,
@@ -64,7 +53,6 @@ def render_map(loca_df, transformer, selected_boreholes):
     if drawn_shape:
         geom_type = drawn_shape.get("type")
         coords = drawn_shape.get("coordinates")
-        # Polygon
         if geom_type == "Polygon" and coords:
             folium.Polygon(
                 locations=[(lat, lon) for lon, lat in coords[0]],
@@ -72,7 +60,6 @@ def render_map(loca_df, transformer, selected_boreholes):
                 fill=True,
                 fill_opacity=0.2,
             ).add_to(m)
-        # Rectangle
         elif geom_type == "Rectangle" and coords:
             folium.Polygon(
                 locations=[(lat, lon) for lon, lat in coords[0]],
@@ -80,8 +67,8 @@ def render_map(loca_df, transformer, selected_boreholes):
                 fill=True,
                 fill_opacity=0.2,
             ).add_to(m)
-        # LineString
         elif geom_type == "LineString" and coords:
+            # Draw the polyline (keep it visible after drawing)
             folium.PolyLine(
                 locations=[
                     (coords[i][1], coords[i][0]) for i in range(len(coords))
@@ -130,30 +117,6 @@ def render_map(loca_df, transformer, selected_boreholes):
             except Exception as e:
                 print(f"Could not draw buffer: {e}")
             # Note: Buffer zone cannot be shown during drawing due to frontend limitations.
-        # Circle
-        elif geom_type == "Circle" and coords:
-            # Expecting drawn_shape to have 'center' and 'radius' keys
-            center = drawn_shape.get("center")
-            radius = drawn_shape.get("radius")
-            # If not present, try to infer from coordinates (GeoJSON style: [lon, lat])
-            if not center and coords:
-                center = coords  # [lon, lat]
-            if center:
-                # Make radius proportional to map zoom for visibility
-                map_zoom = st.session_state.get("map_zoom", 17)
-                # At zoom 17, 50m is visible; scale with zoom (lower zoom = larger area)
-                base_radius = 50  # meters at zoom 17
-                zoom_factor = 2 ** (17 - map_zoom)
-                display_radius = base_radius * zoom_factor
-                # If a radius is provided in the shape, use it, else use display_radius
-                folium.Circle(
-                    location=(center[1], center[0]),  # (lat, lon)
-                    radius=radius if radius else display_radius,
-                    color="orange",
-                    fill=True,
-                    fill_opacity=0.25,
-                    tooltip=f"Selection radius: {int(radius if radius else display_radius)} m",
-                ).add_to(m)
 
     if (
         selected_boreholes is not None
@@ -175,7 +138,9 @@ def render_map(loca_df, transformer, selected_boreholes):
             pca_coords = pca.fit_transform(
                 selected_boreholes[["LOCA_NATE", "LOCA_NATN"]]
             )
-            selected_boreholes["pca_x"] = pca_coords[:, 0]
+            # Make explicit copy to avoid SettingWithCopyWarning
+            selected_boreholes = selected_boreholes.copy()
+            selected_boreholes.loc[:, "pca_x"] = pca_coords[:, 0]
             selected_boreholes = selected_boreholes.sort_values("pca_x")
 
             mean_coords = selected_boreholes[["LOCA_NATE", "LOCA_NATN"]].mean().values

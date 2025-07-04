@@ -1,8 +1,16 @@
 import streamlit as st
 
 
+from config import LOG_FIG_HEIGHT, LOG_FIG_WIDTH
+
+
 def render_borehole_log(
-    loca_id, filename_map, ags_files, show_labels=True, fig_height=2.5, fig_width=2.5
+    loca_id,
+    filename_map,
+    ags_files,
+    show_labels=True,
+    fig_height=LOG_FIG_HEIGHT,
+    fig_width=LOG_FIG_WIDTH,
 ):
     """Display a simple borehole log for the selected LOCA_ID."""
     # Find which AGS file this borehole belongs to
@@ -41,7 +49,9 @@ def render_borehole_log(
         st.warning(f"No data found for borehole {loca_id}.")
         return
     st.subheader(f"Borehole Log: {loca_id}")
-    st.toast("Scroll down to see Borehole Log", icon="🔽")
+    # Only show the toast if this is the first plot for this selection (not on every rerun/checkbox change)
+    if st.session_state.get("show_log_plot", False):
+        st.toast("Scroll down to see Borehole Log", icon="🔽")
     # Draw a single borehole log using the same style as section_plot
     import matplotlib.pyplot as plt
     import numpy as np

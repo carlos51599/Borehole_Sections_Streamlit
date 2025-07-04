@@ -1,17 +1,14 @@
 # Required libraries: matplotlib, pandas
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    print("You need to install the 'matplotlib' library. Run: pip install matplotlib")
-    exit(1)
-try:
-    import pandas as pd
-except ImportError:
-    print("You need to install the 'pandas' library. Run: pip install pandas")
-    exit(1)
+import matplotlib.pyplot as plt
+import pandas as pd
+from config import (
+    SECTION_BASE_HEIGHT,
+    SECTION_MAX_HEIGHT,
+    SECTION_MIN_WIDTH,
+    SECTION_WIDTH_PER_BH,
+)
 import csv
 import numpy as np
-
 import os
 import re
 
@@ -203,7 +200,13 @@ def plot_borehole_sections(
                     break
         leg_label_map[leg] = f"{label} ({leg})"
     width = 1.0  # width of each borehole
-    fig, ax = plt.subplots(figsize=(max(8, len(boreholes) * 1.5), 6))
+    # Section plot figure size is set here (map width to boreholes, restrict max height for aspect ratio)
+    n_bhs = len(boreholes)
+    width_inches = max(SECTION_MIN_WIDTH, n_bhs * SECTION_WIDTH_PER_BH)
+    height_inches = min(SECTION_BASE_HEIGHT, SECTION_MAX_HEIGHT)
+    fig, ax = plt.subplots(
+        figsize=(width_inches, height_inches)
+    )  # <-- Section plot size (max height)
     legend_labels_added = set()
     for i, bh in enumerate(boreholes):
         debug_msgs = []
@@ -415,7 +418,6 @@ def plot_borehole_sections(
         loc="upper left",
     )
     plt.tight_layout()
-    plt.show()
     return fig
 
 
